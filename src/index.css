@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brazely Luxury Dark Theme */
+    --background: 0 0% 4%;
+    --foreground: 40 20% 95%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 40 20% 95%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 40 20% 95%;
+
+    --primary: 43 50% 60%;
+    --primary-foreground: 0 0% 4%;
+
+    --secondary: 30 30% 12%;
+    --secondary-foreground: 40 20% 90%;
+
+    --muted: 30 10% 15%;
+    --muted-foreground: 40 10% 60%;
+
+    --accent: 43 50% 60%;
+    --accent-foreground: 0 0% 4%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 30 15% 18%;
+    --input: 30 15% 18%;
+    --ring: 43 50% 60%;
+
+    --radius: 0.5rem;
+
+    /* Custom Brazely Colors */
+    --gold: 43 50% 60%;
+    --gold-light: 43 60% 70%;
+    --gold-dark: 43 45% 45%;
+    --bronze: 30 55% 45%;
+    --cream: 40 30% 95%;
+    --charcoal: 0 0% 7%;
+    --charcoal-deep: 0 0% 4%;
+
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(43 50% 60%), hsl(30 55% 45%));
+    --gradient-dark: linear-gradient(180deg, hsl(0 0% 4%) 0%, hsl(0 0% 8%) 100%);
+    --gradient-overlay: linear-gradient(180deg, hsla(0 0% 0% / 0.7) 0%, hsla(0 0% 0% / 0.4) 50%, hsla(0 0% 0% / 0.8) 100%);
+
+    /* Shadows */
+    --shadow-gold: 0 4px 30px hsla(43 50% 60% / 0.15);
+    --shadow-elegant: 0 20px 60px hsla(0 0% 0% / 0.5);
+
+    /* Sidebar (keeping for compatibility) */
+    --sidebar-background: 0 0% 7%;
+    --sidebar-foreground: 40 20% 95%;
+    --sidebar-primary: 43 50% 60%;
+    --sidebar-primary-foreground: 0 0% 4%;
+    --sidebar-accent: 30 30% 12%;
+    --sidebar-accent-foreground: 40 20% 90%;
+    --sidebar-border: 30 15% 18%;
+    --sidebar-ring: 43 50% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(43 50% 60%), hsl(43 60% 75%), hsl(30 55% 50%));
+  }
+
+  .border-gradient-gold {
+    border-image: linear-gradient(135deg, hsl(43 50% 60%), hsl(30 55% 45%)) 1;
+  }
+
+  .bg-pattern-arabic {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a962' fill-opacity='0.03'%3E%3Cpath d='M30 30l15-15v30l-15-15zm-15 0l15-15v30L15 30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .gold-shimmer {
+    background: linear-gradient(
+      90deg,
+      hsl(43 50% 60%) 0%,
+      hsl(43 60% 75%) 50%,
+      hsl(43 50% 60%) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  .hover-gold-glow {
+    @apply transition-all duration-500;
+  }
+
+  .hover-gold-glow:hover {
+    box-shadow: 0 0 30px hsla(43, 50%, 60%, 0.3);
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-sans {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    background-position: -200% 0;
+  }
+  50% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(0 0% 7%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(43 50% 40%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(43 50% 50%);
+}
